@@ -42,8 +42,8 @@ function build_image()
 
 for v in ${VERSIONS}; do
     v_no_dot=$(echo ${v} | sed 's/\.//g')
-    slave_dir="${script_dir}/slave-dotnet${v_no_dot}"
-    image="openshift3/jenkins-slave-dotnet${v_no_dot}-rhel7"
+    slave_dir="${script_dir}/${v}"
+    image="dotnet/dotnet-${v_no_dot}-jenkins-slave-rhel7"
 
     # Build image
     build_image "${slave_dir}/Dockerfile.rhel7" ${image}

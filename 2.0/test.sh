@@ -6,7 +6,7 @@
 # The image has to be available before this script is executed.
 #
 
-IMAGE_NAME=${IMAGE_NAME:-openshift3/jenkins-slave-dotnet20-rhel7}
+IMAGE_NAME=${IMAGE_NAME:-dotnet/dotnet-20-jenkins-slave-rhel7}
 
 if [ "${DEBUG}" != "" ]; then
   # print commands as they are executed.
