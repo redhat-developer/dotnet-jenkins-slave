@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/openshift3/jenkins-slave-base-rhel7
+FROM openshift3/jenkins-slave-base-rhel7
 
 # Labels consumed by Red Hat build service
 LABEL com.redhat.component="rh-dotnet20-jenkins-slave-docker" \
