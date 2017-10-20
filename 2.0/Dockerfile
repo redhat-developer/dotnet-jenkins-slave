@@ -1,8 +1,8 @@
-FROM openshift3/jenkins-slave-base-rhel7
+FROM openshift/jenkins-slave-base-centos7
 
 # Labels consumed by Red Hat build service
 LABEL com.redhat.component="rh-dotnet20-jenkins-slave-docker" \
-      name="dotnet/dotnet-20-jenkins-slave-rhel7" \
+      name="dotnet/dotnet-20-jenkins-slave-centos7" \
       version="2.0" \
       architecture="x86_64" \
       release="1" \
@@ -24,10 +24,9 @@ ENV DOTNET_CORE_VERSION=2.0 \
 COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
 # Install
-RUN INSTALL_PKGS="rh-dotnet20 rh-nodejs6-npm" && \
-    yum install -y --setopt=tsflags=nodocs --disablerepo=\* \
-      --enablerepo=rhel-7-server-rpms,rhel-server-rhscl-7-rpms,rhel-7-server-dotnet-rpms \
-      $INSTALL_PKGS && \
+RUN yum install -y centos-release-dotnet centos-release-scl-rh && \
+    INSTALL_PKGS="rh-dotnet20 rh-nodejs6-npm" && \
+    yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y
 
