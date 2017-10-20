@@ -9,9 +9,9 @@ official [OpenShift Documentation](https://docs.openshift.org/latest/using_image
 
 ## Versions
 
-Jenkins slaves provided for RHEL7:
+Jenkins slaves provided:
 
-- .NET Core 2.0
+- .NET Core 2.0 (RHEL7, CentOS7)
 
 ## Building
 
@@ -26,3 +26,7 @@ To build and test specific versions:
 ```
 $ sudo VERSIONS=2.0 ./build.sh
 ```
+
+Note: to build RHEL 7 based images, you need to run the build on a
+properly subscribed RHEL machine. To build CentOS images on RHEL, set
+BUILD_CENTOS=true. On non-RHEL, building CentOS images is the default.

@@ -8,6 +8,8 @@
 # -----------------------------------------------------
 # VERSIONS     The list of versions to build/test.
 #              Defaults to all versions. i.e "2.0".
+#
+# BUILD_CENTOS If 'true' build CentOS based images.
 # -----------------------------------------------------
 #
 # Usage:
@@ -26,7 +28,20 @@ info() {
   echo -e "\e[1m[INFO] $@\e[0m"
 }
 
+# Default to CentOS when not on RHEL.
+if ! [[ `grep "Red Hat Enterprise Linux" /etc/redhat-release` ]]; then
+  BUILD_CENTOS=true
+fi
+
 VERSIONS="${VERSIONS:-2.0}"
+
+if [ "$BUILD_CENTOS" = "true" ]; then
+  image_os="centos7"
+  docker_filename="Dockerfile"
+else
+  image_os="rhel7"
+  docker_filename="Dockerfile.rhel7"
+fi
 
 function build_image()
 {
@@ -43,10 +58,10 @@ function build_image()
 for v in ${VERSIONS}; do
     v_no_dot=$(echo ${v} | sed 's/\.//g')
     slave_dir="${script_dir}/${v}"
-    image="dotnet/dotnet-${v_no_dot}-jenkins-slave-rhel7"
+    image="dotnet/dotnet-${v_no_dot}-jenkins-slave-${image_os}"
 
     # Build image
-    build_image "${slave_dir}/Dockerfile.rhel7" ${image}
+    build_image "${slave_dir}/${docker_filename}" ${image}
     # Run tests
     IMAGE_NAME=${image} "${slave_dir}/test.sh"
 done
