@@ -1,11 +1,11 @@
 FROM openshift3/jenkins-slave-base-rhel7
 
 # Labels consumed by Red Hat build service
-LABEL com.redhat.component="rh-dotnet20-jenkins-slave-docker" \
+LABEL com.redhat.component="rh-dotnet20-jenkins-slave-container" \
       name="dotnet/dotnet-20-jenkins-slave-rhel7" \
       version="2.0" \
       architecture="x86_64" \
-      release="8" \
+      release="10" \
       io.k8s.display-name="Jenkins Slave .NET Core 2.0" \
       io.k8s.description="The jenkins slave dotnet image has the dotnet tools on top of the jenkins slave base image." \
       io.openshift.tags="openshift,jenkins,slave,dotnet,dotnet20"
