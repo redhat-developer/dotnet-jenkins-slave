@@ -28,7 +28,8 @@ RUN yum install -y centos-release-dotnet centos-release-scl-rh && \
     INSTALL_PKGS="rh-dotnet20 rh-nodejs6-npm" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
-    yum clean all -y
+    yum clean all -y && \
+    rm -rf /var/cache/yum/*
 
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
