@@ -24,13 +24,12 @@ ENV DOTNET_CORE_VERSION=2.0 \
 COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
 # Install
-# The 'rm -rf /var/cache/yum' line is there to clean out orphaned yum cache files,
-# which can be quite large in size.
 RUN yum install -y centos-release-dotnet centos-release-scl-rh && \
     INSTALL_PKGS="rh-dotnet20 rh-nodejs6-npm" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
+    # yum cache files may still exist (and quite large in size)
     rm -rf /var/cache/yum/*
 
 RUN chown -R 1001:0 $HOME && \
