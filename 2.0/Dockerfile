@@ -29,7 +29,7 @@ RUN yum install -y centos-release-dotnet centos-release-scl-rh && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
-    # yum cache files may still exist (and quite large in size)
+# yum cache files may still exist (and quite large in size)
     rm -rf /var/cache/yum/*
 
 RUN chown -R 1001:0 $HOME && \
