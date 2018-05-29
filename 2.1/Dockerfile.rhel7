@@ -17,14 +17,14 @@ ENV DOTNET_CORE_VERSION=2.1 \
     BASH_ENV=/usr/local/bin/scl_enable \
     ENV=/usr/local/bin/scl_enable \
     PROMPT_COMMAND=". /usr/local/bin/scl_enable" \
-    ENABLED_COLLECTIONS="rh-nodejs6 rh-dotnet21" \
+    ENABLED_COLLECTIONS="rh-nodejs8 rh-dotnet21" \
     NUGET_XMLDOC_MODE=skip \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 
 COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
 # Install
-RUN INSTALL_PKGS="rh-dotnet21 rh-nodejs6-npm" && \
+RUN INSTALL_PKGS="rh-dotnet21 rh-nodejs8-npm" && \
     yum install -y --setopt=tsflags=nodocs --disablerepo=\* \
       --enablerepo=rhel-7-server-rpms,rhel-server-rhscl-7-rpms,rhel-7-server-dotnet-rpms \
       $INSTALL_PKGS && \

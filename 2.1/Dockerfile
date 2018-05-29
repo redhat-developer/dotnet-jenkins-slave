@@ -17,7 +17,7 @@ ENV DOTNET_CORE_VERSION=2.1 \
     BASH_ENV=/usr/local/bin/scl_enable \
     ENV=/usr/local/bin/scl_enable \
     PROMPT_COMMAND=". /usr/local/bin/scl_enable" \
-    ENABLED_COLLECTIONS="rh-nodejs6 rh-dotnet21" \
+    ENABLED_COLLECTIONS="rh-nodejs8 rh-dotnet21" \
     NUGET_XMLDOC_MODE=skip \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 
@@ -25,7 +25,7 @@ COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
 # Install
 RUN yum install -y centos-release-dotnet centos-release-scl-rh && \
-    INSTALL_PKGS="rh-dotnet21 rh-nodejs6-npm" && \
+    INSTALL_PKGS="rh-dotnet21 rh-nodejs8-npm" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
