@@ -7,7 +7,7 @@
 #
 # -----------------------------------------------------
 # VERSIONS     The list of versions to build/test.
-#              Defaults to all versions. i.e "2.0".
+#              Defaults to all versions.
 #
 # BUILD_CENTOS If 'true' build CentOS based images.
 # -----------------------------------------------------
@@ -33,14 +33,14 @@ if ! [[ `grep "Red Hat Enterprise Linux" /etc/redhat-release` ]]; then
   BUILD_CENTOS=true
 fi
 
-VERSIONS="${VERSIONS:-2.0}"
-
 if [ "$BUILD_CENTOS" = "true" ]; then
   image_os="centos7"
   docker_filename="Dockerfile"
+  VERSIONS="${VERSIONS:-2.0}"
 else
   image_os="rhel7"
   docker_filename="Dockerfile.rhel7"
+  VERSIONS="${VERSIONS:-2.0 2.1}"
 fi
 
 function build_image()

@@ -12,6 +12,7 @@ official [OpenShift Documentation](https://docs.openshift.org/latest/using_image
 Jenkins slaves provided:
 
 - .NET Core 2.0 (RHEL7, CentOS7)
+- .NET Core 2.1 (RHEL7)
 
 ## Building
 
