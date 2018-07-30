@@ -7,3 +7,5 @@ x86_64:
 - rhel-7-server-rpms
 - rhel-server-rhscl-7-rpms
 - rhel-7-server-dotnet-rpms
+- rhel-7-server-ose-3.9-rpms
+- rhel-7-server-optional-rpms
