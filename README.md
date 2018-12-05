@@ -11,8 +11,9 @@ official [OpenShift Documentation](https://docs.openshift.org/latest/using_image
 
 Jenkins slaves provided:
 
-- .NET Core 2.0 (RHEL7, CentOS7)
+- [RETIRED] .NET Core 2.0 (RHEL7, CentOS7)
 - .NET Core 2.1 (RHEL7)
+- .NET Core 2.2 (RHEL7)
 
 ## Building
 
@@ -25,7 +26,7 @@ $ sudo ./build.sh
 To build and test specific versions:
 
 ```
-$ sudo VERSIONS=2.0 ./build.sh
+$ sudo VERSIONS=2.2 ./build.sh
 ```
 
 Note: to build RHEL 7 based images, you need to run the build on a
