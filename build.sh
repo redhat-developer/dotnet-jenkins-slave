@@ -14,7 +14,7 @@
 #
 # Usage:
 #       $ sudo ./build.sh
-#       $ sudo VERSIONS=2.0 ./build.sh
+#       $ sudo VERSIONS=2.2 ./build.sh
 #
 
 if [ "${DEBUG}" != "" ]; then
@@ -36,11 +36,11 @@ fi
 if [ "$BUILD_CENTOS" = "true" ]; then
   image_os="centos7"
   docker_filename="Dockerfile"
-  VERSIONS="${VERSIONS:-2.0}"
+  VERSIONS="${VERSIONS:-2.1}"
 else
   image_os="rhel7"
   docker_filename="Dockerfile.rhel7"
-  VERSIONS="${VERSIONS:-2.0 2.1}"
+  VERSIONS="${VERSIONS:-2.1 2.2}"
 fi
 
 function build_image()
