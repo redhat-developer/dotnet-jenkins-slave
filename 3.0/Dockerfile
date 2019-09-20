@@ -11,15 +11,13 @@ LABEL com.redhat.component="rh-dotnet30-jenkins-slave-docker" \
       io.openshift.tags="openshift,jenkins,slave,dotnet,dotnet30"
 
 # Don't download/extract docs for nuget packages
-# Don't do initially populate of package cache
 # Enable nodejs and dotnet scl
 ENV DOTNET_CORE_VERSION=3.0 \
     BASH_ENV=/usr/local/bin/scl_enable \
     ENV=/usr/local/bin/scl_enable \
     PROMPT_COMMAND=". /usr/local/bin/scl_enable" \
     ENABLED_COLLECTIONS="rh-nodejs10 rh-dotnet30" \
-    NUGET_XMLDOC_MODE=skip \
-    DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+    NUGET_XMLDOC_MODE=skip
 
 COPY contrib/bin/scl_enable /usr/local/bin/scl_enable
 
@@ -31,6 +29,9 @@ RUN yum install -y centos-release-dotnet centos-release-scl-rh && \
     yum clean all -y && \
 # yum cache files may still exist (and quite large in size)
     rm -rf /var/cache/yum/*
+
+# Trigger first time actions.
+RUN dotnet help
 
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
