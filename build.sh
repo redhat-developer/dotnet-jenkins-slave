@@ -40,7 +40,7 @@ if [ "$BUILD_CENTOS" = "true" ]; then
 else
   image_os="rhel7"
   docker_filename="Dockerfile.rhel7"
-  VERSIONS="${VERSIONS:-2.1 2.2}"
+  VERSIONS="${VERSIONS:-2.1 2.2 3.0}"
 fi
 
 function build_image()
