@@ -14,7 +14,7 @@
 #
 # Usage:
 #       $ sudo ./build.sh
-#       $ sudo VERSIONS=2.2 ./build.sh
+#       $ sudo VERSIONS=3.1 ./build.sh
 #
 
 if [ "${DEBUG}" != "" ]; then
@@ -40,7 +40,7 @@ if [ "$BUILD_CENTOS" = "true" ]; then
 else
   image_os="rhel7"
   docker_filename="Dockerfile.rhel7"
-  VERSIONS="${VERSIONS:-2.1 2.2 3.0}"
+  VERSIONS="${VERSIONS:-2.1 2.2 3.0 3.1}"
 fi
 
 function build_image()
