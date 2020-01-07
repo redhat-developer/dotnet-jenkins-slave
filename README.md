@@ -13,7 +13,7 @@ Jenkins slaves provided:
 
 - [RETIRED] .NET Core 2.0 (RHEL7, CentOS7)
 - .NET Core 2.1 (RHEL7)
-- .NET Core 2.2 (RHEL7)
+- [RETIRED] .NET Core 2.2 (RHEL7)
 - .NET Core 3.0 (RHEL7)
 - .NET Core 3.1 (RHEL7)
 
