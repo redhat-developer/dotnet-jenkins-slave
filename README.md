@@ -7,6 +7,10 @@ slaves is in the https://github.com/openshift/jenkins repository.
 For more information about using these images with OpenShift, please see the
 official [OpenShift Documentation](https://docs.openshift.org/latest/using_images/other_images/jenkins.html).
 
+The images are available to be pulled from https://access.redhat.com/containers/#/  
+For example the dotnet-22-jenkins-slave-rhel7 image is available at 
+https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/dotnet/dotnet-22-jenkins-slave-rhel7
+
 ## Versions
 
 Jenkins slaves provided:
